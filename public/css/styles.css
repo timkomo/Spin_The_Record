@@ -1,0 +1,26 @@
+body {
+    background-image: url(../images/wavy-dots/wavy-dots.png);
+    background-repeat: repeat-xy;
+}
+
+h1 {
+    font-family: 'Sriracha', cursive;
+}
+
+h2 {
+    font-family: 'Harmattan', sans-serif;
+    background-color: white;
+    border:  lightgray solid 1px;
+    border-radius: 25px;
+}
+
+h3 {
+    font-family: 'Sriracha', cursive;
+    
+
+}
+
+#addRecord {
+    margin-top: 25px;
+    padding: 15px;
+}

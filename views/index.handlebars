@@ -1,0 +1,75 @@
+<div class="container text-center">
+
+
+    <div class="row">
+
+        <div class="col-md-12 text-center">
+
+            <img src="images/records.png" width="200" height="200" /> 
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Spin The Record</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 text-center">
+
+            <h2>Records To Spin</h2>
+
+            <ul class="list-group">
+                {{#each records}} {{#unless this.spun}}
+                <li class="list-group-item">
+                   
+                        <h3>{{this.record_name}}
+                        <form action="records/update/{{this.id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="spun" value="true">
+                        <button type="submit" class="btn float-center btn-small btn-outline-info">Spin Record <i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+                        </form>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+
+            <h2>Spun Records</h2>
+
+            <ul class="list-group">
+                {{#each records}} {{#if this.spun}}
+                <li class="list-group-item">
+                    <h3>
+                        {{this.record_name}}
+                        <form action="records/delete/{{this.id}}?_method=DELETE" method="POST">
+                            <button type="submit" id="pullRecord" class="btn float-right btn-small btn-outline-info">Pull Record</button>
+                        </form>
+                        <h3>
+                </li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center" id="addRecord">
+            <h1>Add a Record</h1>
+            <form class="create-update-form" action="records/create" method="POST">
+
+                <div class="form-group">
+                    <label for="record">Record Name:</label>
+                    <input type="text" id="record" name="name">
+                </div>
+
+                <button type="submit" class="btn float-center btn-small btn-outline-info">Add record</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
